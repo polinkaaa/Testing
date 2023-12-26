@@ -115,6 +115,7 @@ function cleanPage() {
 }
 
 function showQuestion() {
+    mainTitle.innerHTML = "Тестирование";
     mainQuestion.innerHTML = questions[questionIndex]['question'];
     mainQuestion.style.fontSize = "18px";
     listContainer.style.display = "block";
