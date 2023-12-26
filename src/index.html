@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="header__nav">
+                <button class="header__btn_logo"><img src="img/logo.svg" class="header__logo" alt="logo"></button>
+                <p class="header__title">Заголовок</p>
+            </nav>
+        </div>
+        <hr class="header__hr_green">        
+        <hr class="header__hr_red">
+        <hr class="header__hr_bold_red">
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1 class="main__title">Тестирование</h1>
+            <p class="main__description">Осталось пройти небольшой тест,  который покажет, как хорошо ты усвоил материал</p>
+            <div class="wrap">
+                <div class="box_desc">
+                    <span class="desc"><span class="hyphen">— </span>Для успешного прохождения нужно правильно ответить минимум на 8 вопросов из 10</span>
+                    <span class="desc"><span class="hyphen">— </span> На прохождение теста дается 3 попытки</span>
+                </div>
+                <div class="box_desc hidden">
+                    <span class="desc"><span class="hyphen">— </span>Для успешного прохождения нужно правильно ответить минимум на 8 вопросов из 10</span>
+                    <span class="desc"><span class="hyphen">— </span> На прохождение теста дается 3 попытки</span>
+                </div>
+                <button class="btn">
+                    <p class="btn__testing">Начать</p>
+                    <img src="img/arrow.svg" class="btn__arrow" alt="arrow">
+                </button>
+            </div>
+            <div class="quiz_list">
+                <hr class="hr_top">
+                <label class="label">
+                    <input type="radio" class="answer" name="answer" checked/>
+                    <span class="answer_text"></span>
+                </label>
+            </div>
+            <p class="message"></p>
+            <button class="test_btn_continue">Принять
+                <img src="img/refresh.svg" class="btn__refresh" alt="refresh">
+            </button>
+        </div>
+        <hr class="under_btn">
+    </main>
+
+    <footer class="footer">
+        <hr class="footer__green">
+        <hr class="footer__red">
+    </footer>
+</body>
+</html>
