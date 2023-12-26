@@ -209,5 +209,9 @@ function showResults() {
         context.children[1].children[1].style.fontSize = "30px";
         context.children[1].children[1].style.color = "#69696C";
         context.children[1].children[1].style.textAlign = "center";
+        if (document.documentElement.clientWidth < 430) {
+            context.children[0].style.width = "90%";
+            context.children[1].style.width = "90%";
+        }
     }
 }
