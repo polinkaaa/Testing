@@ -1,0 +1,25 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    &__green {
+        position: absolute;
+        margin: 0px;
+        width: 100%;
+        background: #73BE43;
+        height: 5px;
+        border: none;
+        bottom: 0;
+    }
+
+    &__red {
+        position: absolute;
+        margin: 0px;
+        width: 50%;
+        background: #E9262D;
+        height: 5px;
+        border: none;
+        bottom: 0;
+    }
+}

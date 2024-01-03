@@ -1,0 +1,56 @@
+.test_btn_continue {
+    display: none;
+    position: absolute;
+    padding: 15px 45px;
+    width: fit-content;
+    border-radius: 8px;
+    color: #000000;
+    border: 1px solid #00000020;
+    font-family: 'golos_regular';
+    font-size: 16px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.quiz_list {
+    display: none;
+    list-style-type: none;
+    padding-left: 0;
+    max-width: 77%;
+}
+
+.answer_text {
+    font-family: 'golos_regular';
+    font-size: 16px;
+}
+
+.answer { 
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 21px;
+    border: 2px solid #E9262D;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+    position: relative;
+}
+
+.answer:checked {
+    border: 6px solid #E9262D;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    letter-spacing: -0.3px;
+}
+
+.hr_top {
+    margin-bottom: 18px;
+}
+
+.hr_botton {
+    margin: 18px 0;
+}

@@ -1,73 +1,8 @@
-@font-face {
-    font-family: 'golos_bold';
-    src: url(../fonts/golostext_bold.ttf);
-}
-
-@font-face {
-    font-family: 'golos_regular';
-    src: url(../fonts/golostext_regular.ttf);
-}
-
-@font-face {
-    font-family: 'navigo_regular';
-    src: url(../fonts/Navigo-Regular.ttf);
-}
-
 .container {
     padding-left: 30px;
     padding-right: 30px;
 }
 
-/* header */
-.header {
-    &__nav {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        padding: 10px 0;
-    }
-
-    &__title {
-        font-family: 'golos_regular';
-        font-size: 14px;
-    }
-
-    &__btn_logo {
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    &__hr_green {
-        position: absolute;
-        margin: 0px;
-        width: 100%;
-        background: #73BE43;
-        height: 1px;
-        border: none;
-    }
-
-    &__hr_red {
-        position: absolute;
-        margin: 0px;
-        width: 50%;
-        background: #E9262D;
-        height: 1px;
-        border: none;
-    }
-
-    &__hr_bold_red {
-        position: absolute;
-        margin: 0px;
-        width: 39%;
-        background: #E9262D;
-        height: 5px;
-        border: none;
-    }
-}
-
-/* main */
 .main {
     &__title {
         font-family: 'golos_bold';
@@ -81,8 +16,6 @@
         letter-spacing: 0.07px;
         margin-bottom: 34px;
     }
-
-    
 }
 
 .box_desc {
@@ -146,89 +79,10 @@
     margin: 33px 0 23px;
 }
 
-/* test */
-.test_btn_continue {
-    display: none;
-    position: absolute;
-    padding: 15px 45px;
-    width: fit-content;
-    border-radius: 8px;
-    color: #000000;
-    border: 1px solid #00000020;
-    font-family: 'golos_regular';
-    font-size: 16px;
-    background-color: #ffffff;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.quiz_list {
-    display: none;
-    list-style-type: none;
-    padding-left: 0;
-    max-width: 77%;
-}
-.answer_text {
-    font-family: 'golos_regular';
-    font-size: 16px;
-}
-.answer { 
-    appearance: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 21px;
-    border: 2px solid #E9262D;
-    transition: 0.2s all linear;
-    margin-right: 5px;
-    position: relative;
-}
-.answer:checked {
-    border: 6px solid #E9262D;
-}
-label {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    letter-spacing: -0.3px;
-}
-
-.hr_top {
-    margin-bottom: 18px;
-}
-
-.hr_botton {
-    margin: 18px 0;
-}
-
 .wrap {
+    gap: 20px;
     @media (max-width: 470px) {
         flex-direction: column;
         align-items: center;
-    }
-}
-
-/* footer */
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
-    &__green {
-        position: absolute;
-        margin: 0px;
-        width: 100%;
-        background: #73BE43;
-        height: 5px;
-        border: none;
-        bottom: 0;
-    }
-
-    &__red {
-        position: absolute;
-        margin: 0px;
-        width: 50%;
-        background: #E9262D;
-        height: 5px;
-        border: none;
-        bottom: 0;
     }
 }

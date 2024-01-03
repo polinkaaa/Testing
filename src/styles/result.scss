@@ -1,0 +1,39 @@
+.main__title_result {
+    margin: 82px 0 36px !important;
+}
+
+.main__description_result {
+    font-size: 14px !important;
+    color: #373C40;
+    margin-bottom: 13px !important;
+}
+
+.wrap_result {
+    background-color: #F3F3F3;
+    padding: 32px;
+    gap: 10px;
+}
+
+.desc_result {
+    font-size: 14px;
+    color: #373C40;
+    text-align: center;
+}
+
+.desc_count_result {
+    font-family: "golos_bold";
+    font-size: 30px;
+    color: #E9262D;
+    text-align: center;
+}
+
+.test_btn_continue_result {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+    padding: 13px 44px !important;
+}
+
+.box_desc:nth-child(2) .desc_count_result {
+    color: #69696C;
+}
