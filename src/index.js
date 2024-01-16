@@ -63,7 +63,13 @@ const mainTitle = document.querySelector('.main__title'),
 context = document.querySelector('.wrap'),
 startBtn = document.querySelector('.btn'),
 hr = document.querySelector('.under_btn'),
-nextBtn = document.querySelector('.test_btn_continue');
+nextBtn = document.querySelector('.test_btn_continue'),
+box_desc = document.querySelector('.box_desc'),
+box_desc_result = document.querySelector('.box_desc_result'),
+result = document.querySelector('.result'),
+per_cent = document.querySelector('.per_cent'),
+best_result = document.querySelector('.best_result'),
+best_per_cent = document.querySelector('.best_per_cent');
 
 let mainQuestion = document.querySelector('.main__description'),
 listContainer = document.querySelector('.quiz_list'),
@@ -119,12 +125,12 @@ function cleanPage() {
     message.style.display = "none";
     mainTitle.classList.remove('main__title_result');
     mainQuestion.classList.remove('main__description_result');
-    context.children[0].classList.remove('wrap_result');
-    context.children[0].children[0].classList.remove('desc_result');
-    context.children[0].children[1].classList.remove('desc_count_result');
-    context.children[1].children[0].classList.remove('desc_result');
+    box_desc.classList.remove('wrap_result');
+    result.classList.remove('desc_result');
+    per_cent.classList.remove('desc_count_result');
+    best_result.classList.remove('desc_result');
     nextBtn.classList.remove('test_btn_continue_result');
-    context.children[1].classList.remove('wrap_result');
+    box_desc_result.classList.remove('wrap_result');
 }
 
 function showQuestion() {
@@ -162,11 +168,11 @@ function showResults() {
     mainQuestion.classList.add('main__description_result');
     mainQuestion.innerHTML = "Константин Константинопольский&#160;&#160;&#160;&#160;&#160;" + formattedDate;
     context.style.display = "block";
-    context.children[0].classList.add('wrap_result');
-    context.children[0].children[0].innerHTML = "Результаты " + (numberOfTests + 1) + "-й попытки";
-    context.children[0].children[0].classList.add('desc_result');
-    context.children[0].children[1].innerHTML = score + "/" + questions.length + "&#160;&#160;&#160;&#160;" + score / questions.length * 100 + "%";
-    context.children[0].children[1].classList.add('desc_count_result');
+    box_desc.classList.add('wrap_result');
+    result.innerHTML = "Результаты " + (numberOfTests + 1) + "-й попытки";
+    result.classList.add('desc_result');
+    per_cent.innerHTML = score + "/" + questions.length + "&#160;&#160;&#160;&#160;" + score / questions.length * 100 + "%";
+    per_cent.classList.add('desc_count_result');
     listContainer.style.display = "none";
     startBtn.style.display = "none";
 
@@ -194,17 +200,17 @@ function showResults() {
 
     if (numberOfTests > 1) {
         context.style.display = "flex";
-        context.children[0].style.width = "50%";
-        context.children[1].style.display = "flex";
-        context.children[1].classList.add('wrap_result');
-        context.children[1].style.width = "50%";
-        context.children[1].children[0].innerHTML = "Лучший результат";
-        context.children[1].children[0].classList.add('desc_result');
-        context.children[1].children[1].innerHTML = theBestScore + "%";
-        context.children[1].children[1].classList.add('desc_count_result');
+        box_desc.style.width = "50%";
+        box_desc_result.style.display = "flex";
+        box_desc_result.classList.add('wrap_result');
+        box_desc_result.style.width = "50%";
+        best_result.innerHTML = "Лучший результат";
+        best_result.classList.add('desc_result');
+        best_per_cent.innerHTML = theBestScore + "%";
+        best_per_cent.classList.add('desc_count_result');
         if (document.documentElement.clientWidth < 430) {
-            context.children[0].style.width = "90%";
-            context.children[1].style.width = "90%";
+            box_desc.style.width = "90%";
+            box_desc_result.style.width = "90%";
         }
     }
 }
