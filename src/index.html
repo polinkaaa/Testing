@@ -20,33 +20,46 @@
 
     <main class="main">
         <div class="container">
-            <h1 class="main__title">Тестирование</h1>
-            <p class="main__description">Осталось пройти небольшой тест,  который покажет, как хорошо ты усвоил материал</p>
-            <div class="wrap">
-                <div class="box_desc">
-                    <span class="desc result"><span class="hyphen">— </span>Для успешного прохождения нужно правильно ответить минимум на 8 вопросов из 10</span>
-                    <span class="desc per_cent"><span class="hyphen">— </span> На прохождение теста дается 3 попытки</span>
+            <div class="hello">
+                <h1 class="main__title">Тестирование</h1>
+                <p class="main__description">Осталось пройти небольшой тест,  который покажет, как хорошо ты усвоил материал</p>
+                <div class="wrap">
+                    <div class="box_desc">
+                        <span class="desc"><span class="hyphen">— </span>Для успешного прохождения нужно правильно ответить минимум на 8 вопросов из 10</span>
+                        <span class="desc"><span class="hyphen">— </span> На прохождение теста дается 3 попытки</span>
+                    </div>
+                    <button class="btn">
+                        <p class="btn__testing">Начать</p>
+                        <img src="img/arrow.svg" class="btn__arrow" alt="arrow">
+                    </button>
                 </div>
-                <div class="box_desc box_desc_result hidden">
-                    <span class="desc best_result"><span class="hyphen">— </span>Для успешного прохождения нужно правильно ответить минимум на 8 вопросов из 10</span>
-                    <span class="desc best_per_cent"><span class="hyphen">— </span> На прохождение теста дается 3 попытки</span>
+            </div>
+            <div class="quiz">
+                <h1 class="quiz__title">Тестирование</h1>
+                <p class="quiz__question"></p>
+                <hr class="hr_top">
+                <div class="quiz__container"></div>
+                <button class="test_btn_continue">Принять</button>
+            </div>
+            <div class="results">
+                <h1 class="results__title">Результаты тестирования</h1>
+                <p class="name"></p>
+                <div class="wrap_result">
+                    <div class="results__box desc">
+                        <span class="desc_result"></span>
+                        <span class="desc_per_cent"></span>
+                    </div>
+                    <div class="box_desc_result desc">
+                        <span class="desc_result best_result">Лучший результат</span>
+                        <span class="desc_per_cent best_per_cent"></span>
+                    </div>
                 </div>
-                <button class="btn">
-                    <p class="btn__testing">Начать</p>
-                    <img src="img/arrow.svg" class="btn__arrow" alt="arrow">
+                
+                <p class="message"></p>
+                <button class="results__btn">Повторить тест
+                    <img src="img/refresh.svg" class="btn__refresh" alt="refresh">
                 </button>
             </div>
-            <div class="quiz_list">
-                <hr class="hr_top">
-                <label class="label">
-                    <input type="radio" class="answer" name="answer" checked/>
-                    <span class="answer_text"></span>
-                </label>
-            </div>
-            <p class="message"></p>
-            <button class="test_btn_continue">Принять
-                <img src="img/refresh.svg" class="btn__refresh" alt="refresh">
-            </button>
         </div>
         <hr class="under_btn">
     </main>

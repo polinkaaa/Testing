@@ -1,23 +1,62 @@
-.main__title_result {
-    margin: 82px 0 36px !important;
+.results {
+    display: none;
+    &__title {
+        font-family: "golos_bold";
+        font-size: 38px;
+        margin: 82px 0 36px;
+    }
+    &__btn {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 13px 44px;
+        position: absolute;
+        width: fit-content;
+        border-radius: 8px;
+        color: #000;
+        border: 1px solid rgba(0,0,0,.1254901961);
+        font-family: "golos_regular";
+        font-size: 16px;
+        background-color: #fff;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    &__box, .box_desc_result {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        background-color: #F3F3F3;
+        padding: 32px;
+    }
 }
 
-.main__description_result {
-    font-size: 14px !important;
-    color: #373C40;
-    margin-bottom: 13px !important;
+.name {
+    font-family: "golos_regular";
+    font-size: 14px;
+    color: #373c40;
+    margin-bottom: 13px;
+    letter-spacing: .07px;
 }
 
 .wrap_result {
-    background-color: #F3F3F3;
-    padding: 32px;
-    gap: 10px;
+    gap: 20px;
 }
 
 .desc_result {
+    font-family: "golos_regular";
+    margin: 0;
     font-size: 14px;
     color: #373C40;
     text-align: center;
+}
+
+.desc_per_cent {
+    font-family: "golos_bold";
+    font-size: 30px;
+    color: #e9262d;
+    text-align: center;
+    margin: 0;
 }
 
 .desc_count_result {
@@ -27,13 +66,7 @@
     text-align: center;
 }
 
-.test_btn_continue_result {
-    display: flex !important;
-    gap: 10px;
-    align-items: center;
-    padding: 13px 44px !important;
-}
-
-.box_desc:nth-child(2) .desc_count_result {
-    color: #69696C;
-}
+.results__btn:disabled {
+    background-color: rgba(28, 26, 26, 0.0823529412);
+    cursor: default;
+  }

@@ -1,5 +1,4 @@
 .test_btn_continue {
-    display: none;
     position: absolute;
     padding: 15px 45px;
     width: fit-content;
@@ -13,11 +12,22 @@
     cursor: pointer;
 }
 
-.quiz_list {
+.quiz {
     display: none;
     list-style-type: none;
     padding-left: 0;
     max-width: 77%;
+    &__title {
+        font-family: 'golos_bold';
+        font-size: 38px;
+        margin: 70px 0px 20px;
+    }
+    &__question {
+        font-family: "golos_regular";
+        margin-bottom: 34px;
+        font-size: 18px;
+        letter-spacing: .07px;
+    }
 }
 
 .answer_text {

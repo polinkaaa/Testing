@@ -59,20 +59,24 @@ const questions = [
     },
 ]
 
-const mainTitle = document.querySelector('.main__title'),
-context = document.querySelector('.wrap'),
+const context = document.querySelector('.wrap'),
+hello = document.querySelector('.hello'),
+quizContainer = document.querySelector('.quiz__container'),
 startBtn = document.querySelector('.btn'),
 hr = document.querySelector('.under_btn'),
 nextBtn = document.querySelector('.test_btn_continue'),
-box_desc = document.querySelector('.box_desc'),
+repeatBtn = document.querySelector('.results__btn'),
+name = document.querySelector('.name'),
+box_desc = document.querySelectorAll('.desc'),
 box_desc_result = document.querySelector('.box_desc_result'),
-result = document.querySelector('.result'),
-per_cent = document.querySelector('.per_cent'),
-best_result = document.querySelector('.best_result'),
+result = document.querySelector('.results'),
+desc_result = document.querySelector('.desc_result'),
+per_cent = document.querySelector('.desc_per_cent'),
+wrap_result = document.querySelector('.wrap_result'),
 best_per_cent = document.querySelector('.best_per_cent');
 
-let mainQuestion = document.querySelector('.main__description'),
-listContainer = document.querySelector('.quiz_list'),
+let mainQuestion = document.querySelector('.quiz__question'),
+listContainer = document.querySelector('.quiz'),
 message = document.querySelector('.message');
 
 let score = 0,
@@ -115,41 +119,40 @@ nextBtn.addEventListener('click', function() {
         showResults();
     }
 })
+repeatBtn.addEventListener('click', function() {
+    questionIndex=0;
+    cleanPage();
+    showQuestion();
+})
 
 function cleanPage() {
     context.style.display = "none";
     hr.style.display = "none";
-    mainTitle.style.margin = "70px 0 20px";
-    mainQuestion.style.marginBottom = "34px";
-    listContainer.innerHTML = '<hr class="hr_top">';
-    message.style.display = "none";
-    mainTitle.classList.remove('main__title_result');
-    mainQuestion.classList.remove('main__description_result');
-    box_desc.classList.remove('wrap_result');
-    result.classList.remove('desc_result');
-    per_cent.classList.remove('desc_count_result');
-    best_result.classList.remove('desc_result');
-    nextBtn.classList.remove('test_btn_continue_result');
-    box_desc_result.classList.remove('wrap_result');
+    hello.style.display = "none";
+    result.style.display = "none";
 }
 
 function showQuestion() {
-    mainTitle.innerHTML = "Тестирование";
     mainQuestion.innerHTML = questions[questionIndex]['question'];
-    mainQuestion.style.fontSize = "18px";
     listContainer.style.display = "block";
     
     for (let i=1; i<=questions[questionIndex]['answers'].length; i++ ) {
-        listContainer.innerHTML +=
-        `<label class="label">
-            <input type="radio" class="answer" name="answer" value = "${i}"/>
-            <span class="answer_text">${questions[questionIndex]['answers'][i - 1]}</span>
-        </label>
-        <hr class="hr_botton">`;
+        if (i==1) {
+            quizContainer.innerHTML =
+                `<label class="label">
+                    <input type="radio" class="answer" name="answer" value = "${i}" checked/>
+                    <span class="answer_text">${questions[questionIndex]['answers'][i - 1]}</span>
+                </label>
+                <hr class="hr_botton">`;
+        } else {
+            quizContainer.innerHTML +=
+                `<label class="label">
+                    <input type="radio" class="answer" name="answer" value = "${i}"/>
+                    <span class="answer_text">${questions[questionIndex]['answers'][i - 1]}</span>
+                </label>
+                <hr class="hr_botton">`;
+        }
     }
-    nextBtn.innerHTML = "Принять";
-    nextBtn.style.display = "block";
-    nextBtn.style.padding = "15px 45px";
 }
     
 function checkAnswer() {
@@ -163,18 +166,13 @@ function checkAnswer() {
 }
 
 function showResults() {
-    mainTitle.classList.add('main__title_result');
-    mainTitle.innerHTML = "Результаты тестирования";
-    mainQuestion.classList.add('main__description_result');
-    mainQuestion.innerHTML = "Константин Константинопольский&#160;&#160;&#160;&#160;&#160;" + formattedDate;
-    context.style.display = "block";
-    box_desc.classList.add('wrap_result');
-    result.innerHTML = "Результаты " + (numberOfTests + 1) + "-й попытки";
-    result.classList.add('desc_result');
+    console.log(score)
+    console.log(numberOfTests)
+    name.innerHTML = "Константин Константинопольский&#160;&#160;&#160;&#160;&#160;" + formattedDate;
+    result.style.display = "block";
+    desc_result.innerHTML = "Результаты " + (numberOfTests + 1) + "-й попытки";
     per_cent.innerHTML = score + "/" + questions.length + "&#160;&#160;&#160;&#160;" + score / questions.length * 100 + "%";
-    per_cent.classList.add('desc_count_result');
     listContainer.style.display = "none";
-    startBtn.style.display = "none";
 
     message.style.display = "block";
     if (score / questions.length * 100 < 80) {
@@ -187,30 +185,25 @@ function showResults() {
         theBestScore = score / questions.length * 100;
     }
     
+    if (numberOfTests == 0) {
+        box_desc_result.style.display ="none";
+    } else {
+        box_desc_result.style.display ="flex";
+    }
+
     if (numberOfTests < 2) {
-        nextBtn.classList.add('test_btn_continue_result');
-        nextBtn.innerHTML = "Повторить тест";
-        nextBtn.innerHTML += '<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2IDcuNTM4NDZDMTguNjU3OSA3LjUzODQ2IDIxLjAzMjkgOC43MzYxNSAyMi42MDI4IDEwLjYxNTRIMjQuNTI1MkMyMi43Mjc3IDcuODM5NzYgMTkuNTgxMiA2IDE2IDZDMTAuNTE5NiA2IDYuMDU3MTggMTAuMzA4NSA1Ljg4OTQ4IDE1LjY4NjFMNC4xMDA0MSAxMy45MTc1TDMgMTUuMDA1NEw2LjY2MjY0IDE4LjYyNjJMMTAuMzI1MyAxNS4wMDU0TDkuMjI0ODcgMTMuOTE3NUw3LjQ0NyAxNS42NzUxQzcuNjE5NzMgMTEuMTUyNSAxMS4zODI5IDcuNTM4NDYgMTYgNy41Mzg0NloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik05LjM5NzQ2IDIxLjM4NDZINy40NzVDOS4yNzI1NCAyNC4xNjAyIDEyLjQxOTEgMjYgMTYuMDAwMiAyNkMyMS40ODA1IDI2IDI1Ljk0MjkgMjEuNjkxNiAyNi4xMTA4IDE2LjMxNDFMMjcuODk5NiAxOC4wODI1TDI5IDE2Ljk5NDZMMjUuMzM3NCAxMy4zNzM4TDIxLjY3NDcgMTYuOTk0NkwyMi43NzUxIDE4LjA4MjVMMjQuNTUzMiAxNi4zMjQ3QzI0LjM4MDcgMjAuODQ3NCAyMC42MTc0IDI0LjQ2MTUgMTYuMDAwMiAyNC40NjE1QzEzLjM0MjMgMjQuNDYxNSAxMC45Njc0IDIzLjI2MzkgOS4zOTc0NiAyMS4zODQ2WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==" class="btn__refresh" alt="refresh">';
         numberOfTests++;
         questionIndex = -1;
         score = 0;
     } else {
-        nextBtn.style.display = "none";
+        repeatBtn.disabled = 'true';
     }
 
     if (numberOfTests > 1) {
-        context.style.display = "flex";
-        box_desc.style.width = "50%";
-        box_desc_result.style.display = "flex";
-        box_desc_result.classList.add('wrap_result');
-        box_desc_result.style.width = "50%";
-        best_result.innerHTML = "Лучший результат";
-        best_result.classList.add('desc_result');
+        wrap_result.style.display = "flex";
+        box_desc.forEach(item => {
+            item.style.width = "50%";
+        })
         best_per_cent.innerHTML = theBestScore + "%";
-        best_per_cent.classList.add('desc_count_result');
-        if (document.documentElement.clientWidth < 430) {
-            box_desc.style.width = "90%";
-            box_desc_result.style.width = "90%";
-        }
-    }
+    } 
 }
